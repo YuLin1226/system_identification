@@ -8,6 +8,16 @@ ARMAX Example
 
 from __future__ import division
 from past.utils import old_div
+
+# Checking path to access other files
+try:
+    from sippy import *
+except ImportError:
+    import sys, os
+
+    sys.path.append(os.pardir)
+    from sippy import *
+
 from sippy import functionset as fset
 from sippy import *
 import numpy as np
@@ -61,7 +71,7 @@ plt.xlabel("Time")
 plt.title("Time response y$_k$(u) = g$\cdot$u$_k$")
 plt.legend(['u(t)', 'y(t)'])
 plt.grid()
-plt.show()
+# plt.show()
 
 # ### Noise response
 
@@ -73,7 +83,7 @@ plt.xlabel("Time")
 plt.title("Time response y$_k$(e) = h$\cdot$e$_k$")
 plt.legend(['e(t)', 'y(t)'])
 plt.grid()
-plt.show()
+# plt.show()
 
 # ## Total output
 # $$Y_t = Y_1 + Y_2 = G.u + H.e$$
@@ -137,7 +147,7 @@ plt.ylabel("Input GBN")
 plt.xlabel("Time")
 plt.title("Input, identification data (Switch probability=0.08)")
 plt.grid()
-plt.show()
+# plt.show()
 
 plt.figure(4)
 plt.plot(Time, Ytot)
@@ -149,7 +159,7 @@ plt.xlabel("Time")
 plt.ylabel("y(t)")
 plt.title("Output, (identification data)")
 plt.legend(['System', 'ARMAX-I', 'ARMAX-0', 'ARMAX-R'])
-plt.show()
+# plt.show()
 
 
 ##### VALIDATION of the identified system:

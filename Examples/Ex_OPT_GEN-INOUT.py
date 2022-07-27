@@ -8,6 +8,16 @@ ARMAX Example
 
 from __future__ import division
 from past.utils import old_div
+
+# Checking path to access other files
+try:
+    from sippy import *
+except ImportError:
+    import sys, os
+
+    sys.path.append(os.pardir)
+    from sippy import *
+
 from sippy import functionset as fset
 from sippy import *
 import numpy as np
